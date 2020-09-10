@@ -2,6 +2,8 @@
 
 Yojji is an Eleventy starter kit designed to help you add rich features to a blog or website without the need for a complicated build process. Higly recomended for agencies.
 
+[demo](http://11ty.yojji.io/)
+
 It comes with all the blog standard features:
 - Posts and Pages
 - Pagination
