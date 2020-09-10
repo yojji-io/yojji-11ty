@@ -80,8 +80,9 @@ module.exports = function (config) {
   return {
     dir: {
       input: "src",
-      output: "dist",
+      output: "docs",
     },
+    pathPrefix: "/yojji-11ty/"
     // passthroughFileCopy: true
   };
 };
