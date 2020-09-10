@@ -1,0 +1,21 @@
+{% if posts.length %}
+  <section class="container">
+    <div class="recent-posts">
+      <h2>Recent posts</h2>
+      <div class="row">
+        {% for item in posts %}
+          <div class="col-md-4">
+            <img src="{{item.data.cover}}" loading="lazy" style="width: 100%;" alt="{{ item.data.title }} cover"/>
+            <h3>
+              <a href="{{ item.url }}" rel="bookmark">{{ item.data.title }}</a>
+            </h3>
+            <time class="post-stack-date" datetime="{{ item.date | w3DateFilter }}">{{ item.date | dateFilter }}</time>
+            {% if item.data.description %}
+              <p>{{item.data.description}}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

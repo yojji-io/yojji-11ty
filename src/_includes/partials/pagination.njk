@@ -1,0 +1,26 @@
+{% if paginationNextUrl or paginationPrevUrl %}
+  <nav class="site-pagination">
+    <a href="{{ paginationPrevUrl }}" data-direction="backwards">
+      {% if paginationPrevUrl %}
+        <span aria-hidden="true">
+          {% include "icons/arrow-left.svg" %}
+        </span>
+
+        <span>
+          {{ paginationPrevText if paginationPrevText else 'Newer' }}
+        </span>
+      {% endif %}
+    </a>
+
+    <a href="{{ paginationNextUrl }}" data-direction="forwards">
+      {% if paginationNextUrl %}
+        <span>
+          {{ paginationNextText if paginationNextText else 'Older' }}
+        </span>
+        <span aria-hidden="true">
+          {% include "icons/arrow-right.svg" %}
+        </span>
+      {% endif %}
+    </a>
+  </nav>
+{% endif %}

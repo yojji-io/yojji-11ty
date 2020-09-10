@@ -1,0 +1,12 @@
+.site-pagination {
+  display: flex;
+  justify-content: space-between;;
+
+  a {
+    display: inline;
+  }
+
+  svg {
+    height: 50px;
+  }
+}

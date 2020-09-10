@@ -1,0 +1,18 @@
+---
+eleventyComputed:
+  pagination:
+    data: collections.posts_{{locale or 'en'}}
+    size: 3
+    alias: posts
+---
+{% extends 'layouts/base.njk' %}
+
+{% block content %}
+    {% include "partials/global/header.njk" %}
+    {% include "partials/services.njk" %}
+    {% include "partials/portfolio.njk" %}
+    {% include "partials/about.njk" %}
+    {% include "partials/team.njk" %}
+    {% include "partials/contact.njk" %}
+    {% include "partials/post-list-home.njk" %}
+{% endblock %}

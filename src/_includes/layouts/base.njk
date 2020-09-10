@@ -1,0 +1,39 @@
+{% set _t = site._t(locale)%}
+
+<!DOCTYPE html>
+<html lang="{% if locale %}{{locale}}{% else %}en{% endif %}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    {% for name, item in css %}
+      <link rel="stylesheet" href="/css/{{name}}.css">
+    {% endfor %}
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous" async></script>
+
+    {% include "partials/global/meta.njk" %}
+    {% block head %}{% endblock %}
+  </head>
+
+  <body id="page-top">
+    {% include "partials/global/navigation.njk" %}
+
+    {% block content %}{% endblock content %}
+
+    {% block foot %}
+      {% include "partials/global/footer.njk" %}
+    {% endblock %}
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+
+    {% for name, item in js %}
+      <script type="text/javascript" src="/js/{{name}}"></script>
+    {% endfor %}
+  </body>
+</html>

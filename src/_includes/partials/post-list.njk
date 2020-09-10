@@ -1,0 +1,27 @@
+<section class="page-section" id="blog">
+  <div class="container">
+    <h1>{{heading if heading else 'Blog'}}</h1>
+
+    <ul class="post-list">
+      {% for item in posts %}
+        <li>
+          <h2>
+            <a href="{{ item.url }}" rel="bookmark">{{ item.data.title }}</a>
+          </h2>
+
+          <time datetime="{{ item.date | w3DateFilter }}">{{ item.date | dateFilter }}</time>
+
+          <p>
+            {% if item.data.description %}
+              {{item.data.description}}
+              <a href="{{ item.url }}" aria-hidden="true" >Read more</a>
+            {% endif %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% include "partials/pagination.njk" %}
+
+  </div>
+</section>

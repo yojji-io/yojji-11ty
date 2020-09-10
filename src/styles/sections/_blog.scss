@@ -1,0 +1,14 @@
+#blog{
+  .post-list {
+    padding-top: 40px;
+    list-style-type: none;
+
+    li {
+      margin-bottom: 30px;
+    }
+
+    time {
+      opacity: 0.5;
+    }
+  }
+}

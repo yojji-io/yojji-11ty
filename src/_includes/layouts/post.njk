@@ -1,0 +1,50 @@
+{% extends 'layouts/base.njk' %}
+
+{% set authorName = author if author else
+  site.authorName %}
+{% set introSummary %}
+<div >
+  {% if description %}
+    <p>{{ description | safe }}</p>
+  {% endif %}
+  <p>
+    {% if date %}
+        Posted by {{ authorName }}
+        on <time datetime="{{ date | w3DateFilter }}" class="dt-published">{{ date | dateFilter }}</time>
+    {% endif %} (about a {{ helpers.getReadingTime(content) }} minute read).
+    </p>
+</div>
+{% endset %}
+
+{% block content %}
+  <div class="page-section container">
+    <article>
+      <div >
+        {% include "partials/post-intro.njk" %}
+        <div >
+          <div>
+            {{ content | safe }}
+          </div>
+        </div>
+      </div>
+    </article>
+    <div >
+      <footer>
+        {% if tags %}
+          <h2>Tags</h2>
+        {% endif %}
+        <div >
+          {% if tags %}
+            <ul >
+              {% for item in tags %}
+                <li>
+                  <a  href="/tags/{{ item }}">{{ item }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </footer>
+      </div>
+    </div>
+  </div>
+{% endblock %}

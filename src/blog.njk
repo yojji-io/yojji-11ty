@@ -1,0 +1,20 @@
+---
+layout: "layouts/page.njk"
+title: Blog
+metaDescription: Checkout out blog
+
+eleventyComputed:
+  pagination:
+    data: collections.posts_{{locale or 'en'}}
+    size: 3
+    alias: posts
+  collection: collections.posts_{{locale or 'en'}}
+---
+
+{% if posts.length < collection.length %}
+  {% set paginationNextText = 'Next' %}
+  {% set paginationNextUrl = pagination.nextPageHref %}
+  {% set paginationPrevUrl = pagination.previousPageHref %}
+{% endif %}
+
+{% include "partials/post-list.njk" %}
